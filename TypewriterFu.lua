@@ -7,6 +7,7 @@ if rotspeed == nil then rotspeed = 1 end
 if rotmult == nil then rotmult = 1 end
 if SpecialCharDly == nil then SpecialCharDly = .3 end
 if PeriodDly == nil then PeriodDly = .6 end
+if voiceid == nil then voiceid = 'rbxassetid://0' end
 
 
 task.spawn(function()
