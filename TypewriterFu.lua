@@ -1,5 +1,5 @@
 local Main = {}
-function Main:TypeWrite(txt,col,outlinecol,voiceid,rotspeed,rotmult,SpecialCharDly,PeriodDly,rotspeed2,rotspeed3,agression,agression2)
+function Main:TypeWrite(txt,col,outlinecol,voiceid,rotspeed,rotmult,SpecialCharDly,rotspeed2,rotspeed3,agression,agression2)
 
 task.spawn(function()
 local HealthBar = Instance.new("BillboardGui")
@@ -38,7 +38,7 @@ PName.TextWrapped = true
 PName.TextYAlignment = Enum.TextYAlignment.Top
 Frame.ZIndex = 15
 spawn(function()
-for i = 1,355 do 
+for i = 1,1355 do 
 PName.Rotation = math.cos(i/rotspeed)*rotmult
 HealthBar.ExtentsOffset = Vector3.new(math.cos(i/rotspeed2)*agression,2+math.sin(i/rotspeed3)*agression2,0) 
 task.wait(.01) end end)
@@ -52,7 +52,7 @@ local c = string.sub(s, i, i)
 a = a .. c
 PName.Text = a
 if c == "." then
-wait(PeriodDly)
+wait(.6)
 elseif c == ";" then
 wait(SpecialCharDly)
 elseif c == "," then
