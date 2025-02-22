@@ -52,7 +52,7 @@ local c = string.sub(s, i, i)
 a = a .. c
 PName.Text = a
 if c == "." then
-wait(PerioidDly)
+wait(PeriodDly)
 elseif c == ";" then
 wait(SpecialCharDly)
 elseif c == "," then
