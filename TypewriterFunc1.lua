@@ -1,12 +1,18 @@
 local Main = {}
-function Main:TypeWrite(txt,col,outlinecol)
+function Main:TypeWrite(txt,col,outlinecol,voiceid,rotspeed,rotmult,SpecialCharDly,PeriodDly)
+if rotspeed == nil then rotspeed = 0 end 
+if txt == nil then txt = 'You forgot to add text!'
+if col == nil then col = Color3.new(1,1,1)
+if outlinecol == nil then outlinecol = Color3.new(0,0,0)
+if rotmult == nil then rotmult == 1 end
+if SpecialCharDly == nil then SpecialCharDly == .3 end
+if PeriodDly == nil then PeriodDly == .7 end
 task.spawn(function()
-local re = false
 local HealthBar = Instance.new("BillboardGui")
 local Frame = Instance.new("Frame")
 local PName = Instance.new("TextLabel")
 local Text = Instance.new('Sound', workspace);
-Text.SoundId="rbxassetid://5093601873";Text.Looped=false;
+Text.SoundId=voiceid;Text.Looped=false;
 Text.Volume = 5;Text.Name='Text'
 pcall(function()
 game.Players.LocalPlayer.Character.Head.Text:Destroy()
@@ -39,8 +45,9 @@ PName.TextYAlignment = Enum.TextYAlignment.Top
 Frame.ZIndex = 15
 spawn(function()
 for i = 1,355 do 
-PName.Rotation = math.cos(i/35)*2
+PName.Rotation = math.cos(i/rotspeed)*rotmult
 task.wait(.01) end end)
+
 function tw(s)
 local a = ""
 local s_l = #s
@@ -50,13 +57,13 @@ local c = string.sub(s, i, i)
 a = a .. c
 PName.Text = a
 if c == "." then
-wait(.6)
+wait(PerioidDly)
 elseif c == ";" then
-wait(.3)
+wait(SpecialCharDly)
 elseif c == "," then
-wait(.3)
+wait(SpecialCharDly)
 elseif c == "!" then
-wait(.3)
+wait(SpecialCharDly)
 end
 wait(.03)
 end end
