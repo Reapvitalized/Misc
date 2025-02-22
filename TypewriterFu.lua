@@ -1,6 +1,12 @@
 local Main = {}
 function Main:TypeWrite(txt,col,outlinecol,voiceid,rotspeed,rotmult,SpecialCharDly,PeriodDly)
-
+if txt == nil then txt = 'bro you forgot to add text' end
+if col == nil then col = Color3.new(1,1,1) end
+if outlinecol == nil then outlinecol = Color3.new(0,0,0) end
+if rotspeed == nil then rotspeed = 1 end
+if rotmult == nil then rotmult = 1 end
+if SpecialCharDly == nil then SpecialCharDly = .3 end
+if PeriodDly == nil then PeriodDly = .6 end
 
 
 task.spawn(function()
