@@ -1,14 +1,5 @@
 local Main = {}
-function Main:TypeWrite(txt,col,outlinecol,voiceid,rotspeed,rotmult,SpecialCharDly,PeriodDly)
-if txt == nil then txt = 'bro you forgot to add text' end
-if col == nil then col = Color3.new(1,1,1) end
-if outlinecol == nil then outlinecol = Color3.new(0,0,0) end
-if rotspeed == nil then rotspeed = 1 end
-if rotmult == nil then rotmult = 1 end
-if SpecialCharDly == nil then SpecialCharDly = .3 end
-if PeriodDly == nil then PeriodDly = .6 end
-if voiceid == nil then voiceid = 'rbxassetid://0' end
-
+function Main:TypeWrite(txt,col,outlinecol,voiceid,rotspeed,rotmult,SpecialCharDly,PeriodDly,rotspeed2,rotspeed3,agression,agression2)
 
 task.spawn(function()
 local HealthBar = Instance.new("BillboardGui")
@@ -49,6 +40,7 @@ Frame.ZIndex = 15
 spawn(function()
 for i = 1,355 do 
 PName.Rotation = math.cos(i/rotspeed)*rotmult
+HealthBar.ExtentsOffset = Vector3.new(math.cos(i/rotspeed2)*agression,2+math.sin(i/rotspeed3)*agression2,0) 
 task.wait(.01) end end)
 
 function tw(s)
